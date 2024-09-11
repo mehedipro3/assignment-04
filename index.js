@@ -1,5 +1,5 @@
 function calculateTax(income, expenses) {
-    if (income < 0 || expenses < 0) {
+    if (income < 0 || expenses < 0 && income >= expenses) {
         return "Invalid Input";
     }
     const salary = income - expenses;
@@ -46,6 +46,21 @@ function calculateFinalScore(obj) {
     else {
         return false;
     }
+}
+
+function waitingTime(waitingTimes, serialNumber) {
+    if (!Array.isArray(waitingTimes) || typeof serialNumber !== 'number') {
+        return "Invalid Input";
+    }
+
+    const len = waitingTimes.length;
+    let sum = 0;
+    for (const time of waitingTimes) {
+        sum = sum + time;
+    }
+    const avg = Math.round(sum / len);
+    const serial = serialNumber - 1 - len;
+    return serial * avg;
 }
 
 
