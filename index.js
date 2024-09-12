@@ -1,5 +1,5 @@
 function calculateTax(income, expenses) {
-    if (income < 0 || expenses < 0 && income >= expenses) {
+    if (income < 0 || expenses < 0 || income < expenses) {
         return "Invalid Input";
     }
     const salary = income - expenses;
@@ -16,6 +16,8 @@ function sendNotification(email) {
     const [username, domain] = email.split('@');
     return username + ' sent you an email from ' + domain;;
 }
+
+
 
 
 function checkDigitsInName(name) {
@@ -47,6 +49,8 @@ function calculateFinalScore(obj) {
         return false;
     }
 }
+
+
 
 function waitingTime(waitingTimes, serialNumber) {
     if (!Array.isArray(waitingTimes) || typeof serialNumber !== 'number') {
